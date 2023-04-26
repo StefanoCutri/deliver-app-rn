@@ -2,6 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { ArrowRightIcon } from 'react-native-heroicons/outline'
 import { ScrollView } from 'react-native'
+import RestaurantCard from './RestaurantCard'
 
 const FeaturedRow = ({id, title, description, featuredCategory}) => {
   return (
@@ -20,6 +21,7 @@ const FeaturedRow = ({id, title, description, featuredCategory}) => {
         className="pt-4"
       >
         {/* RestaurantCards */}
+        <RestaurantCard />
       </ScrollView>
     </View>
   )
