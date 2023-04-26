@@ -21,7 +21,18 @@ const FeaturedRow = ({id, title, description, featuredCategory}) => {
         className="pt-4"
       >
         {/* RestaurantCards */}
-        <RestaurantCard />
+        <RestaurantCard 
+        id={123}
+        imgUrl="https://assets.unileversolutions.com/recipes-v2/237341.jpg"
+        title="YO! Sushi"
+        rating={4.5}
+        genre="Japanese"
+        address="123 Main St"
+        short_description="This is a short desc"
+        dishes={[]}
+        long={20}
+        lat={0}
+        />
       </ScrollView>
     </View>
   )
