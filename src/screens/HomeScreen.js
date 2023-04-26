@@ -20,27 +20,33 @@ const HomeScreen = () => {
     <SafeAreaView className="bg-white pt-5">
       {/* Header */}
       <Header />
-      
+
       <ScrollView>
         {/* Categories */}
         <Categories />
-        {/* Featured Rows */}
+        {/* Featured*/}
         <FeaturedRow
+          id={1}
+          title="Featured"
+          description="Paid placements from our partners"
+          featuredCategory="featured"
+        />
+        {/* Tasty Discounts */}
+        <FeaturedRow
+          id={2}
+          title="Featured"
+          description="Paid placements from our partners"
+          featuredCategory="featured"
+        />
+        {/* Offers near you */}
+        <FeaturedRow
+          id={3}
           title="Featured"
           description="Paid placements from our partners"
           featuredCategory="featured"
         />
         <FeaturedRow
-          title="Featured"
-          description="Paid placements from our partners"
-          featuredCategory="featured"
-        />
-        <FeaturedRow
-          title="Featured"
-          description="Paid placements from our partners"
-          featuredCategory="featured"
-        />
-        <FeaturedRow
+          id={4}
           title="Featured"
           description="Paid placements from our partners"
           featuredCategory="featured"
