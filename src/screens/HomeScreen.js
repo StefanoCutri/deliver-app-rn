@@ -5,6 +5,7 @@ import { TextInput } from "react-native";
 import { ScrollView } from "react-native";
 import Header from "../../components/Header";
 import Categories from "../../components/Categories";
+import FeaturedRow from "../../components/FeaturedRow";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -24,6 +25,26 @@ const HomeScreen = () => {
         {/* Categories */}
         <Categories />
         {/* Featured Rows */}
+        <FeaturedRow
+          title="Featured"
+          description="Paid placements from our partners"
+          featuredCategory="featured"
+        />
+        <FeaturedRow
+          title="Featured"
+          description="Paid placements from our partners"
+          featuredCategory="featured"
+        />
+        <FeaturedRow
+          title="Featured"
+          description="Paid placements from our partners"
+          featuredCategory="featured"
+        />
+        <FeaturedRow
+          title="Featured"
+          description="Paid placements from our partners"
+          featuredCategory="featured"
+        />
       </ScrollView>
     </SafeAreaView>
   );
