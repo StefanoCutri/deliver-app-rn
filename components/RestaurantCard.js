@@ -3,7 +3,7 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import { Image } from "react-native";
 import { StarIcon } from "react-native-heroicons/outline";
-import { MapIcon } from "react-native-heroicons/outline";
+import { MapPinIcon } from "react-native-heroicons/outline";
 
 const RestaurantCard = ({
   id,
@@ -34,8 +34,8 @@ const RestaurantCard = ({
           </Text>
         </View>
         <View className="flex-row items-center space-x-1">
-          <MapIcon color="gray" opacity={0.4} size={22}/>
-          <Text className="text-xs">Nearby · {address}</Text>
+          <MapPinIcon color="gray" opacity={0.4} size={22}/>
+          <Text className="text-xs text-gray-500">Nearby · {address}</Text>
         </View>
       </View>
     </TouchableOpacity>
