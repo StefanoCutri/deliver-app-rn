@@ -1,9 +1,25 @@
 import { View, Text } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ScrollView } from "react-native";
 import CategoryCard from "./CategoryCard";
+import client, { urlFor } from "../sanity";
 
 const Categories = () => {
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    client.fetch(
+      `
+      *[_type == "category"]
+      `
+    )
+    .then(data => {
+      setCategories(data)
+    })
+  }, [])
+  
+
   return (
     <ScrollView
       horizontal
@@ -14,14 +30,15 @@ const Categories = () => {
       showsHorizontalScrollIndicator={false}
     >
       {/* CategoryCard */}
-      <CategoryCard imgUrl="https://assets.unileversolutions.com/recipes-v2/237341.jpg" title="Testing"/>
-      <CategoryCard imgUrl="https://assets.unileversolutions.com/recipes-v2/237341.jpg" title="Testing"/>
-      <CategoryCard imgUrl="https://assets.unileversolutions.com/recipes-v2/237341.jpg" title="Testing"/>
-      <CategoryCard imgUrl="https://assets.unileversolutions.com/recipes-v2/237341.jpg" title="Testing"/>
-      <CategoryCard imgUrl="https://assets.unileversolutions.com/recipes-v2/237341.jpg" title="Testing"/>
-      <CategoryCard imgUrl="https://assets.unileversolutions.com/recipes-v2/237341.jpg" title="Testing"/>
-      <CategoryCard imgUrl="https://assets.unileversolutions.com/recipes-v2/237341.jpg" title="Testing"/>
-      <CategoryCard imgUrl="https://assets.unileversolutions.com/recipes-v2/237341.jpg" title="Testing"/>
+      {
+        categories.map((category) => (
+          <CategoryCard 
+          key={category._id}
+          imgUrl={urlFor(category.image).url()}
+          title={category.name}
+          />
+        ))
+      }
     </ScrollView>
   );
 };
