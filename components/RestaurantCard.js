@@ -4,10 +4,10 @@ import { TouchableOpacity } from "react-native";
 import { Image } from "react-native";
 import { StarIcon } from "react-native-heroicons/outline";
 import { MapPinIcon } from "react-native-heroicons/outline";
-import { urlFor } from "../sanity";
 import { useNavigation } from "@react-navigation/native";
+import { urlFor } from "../sanity";
 
-const RestaurantCard = ({
+export const RestaurantCard = ({
   id,
   imgUrl,
   title,

@@ -2,13 +2,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import 'react-native-url-polyfill/auto';
 const Stack = createNativeStackNavigator();
-import { NativeWindStyleSheet } from "nativewind";
-import HomeScreen from "./src/screens/HomeScreen";
-import RestaurantScreen from "./src/screens/RestaurantScreen";
-
-NativeWindStyleSheet.setOutput({
-  default: "native",
-});
+import HomeScreen from "./screens/HomeScreen";
+import RestaurantScreen from "./screens/RestaurantScreen";
 
 export default function App() {
   return (
