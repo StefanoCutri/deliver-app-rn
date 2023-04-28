@@ -7,7 +7,7 @@ import {
     AdjustmentsVerticalIcon,
   } from "react-native-heroicons/outline";
 
-const Header = () => {
+export const Header = () => {
   return (
     <>
     <View className="flex-row pb-3 items-center mx-4 space-x-2">

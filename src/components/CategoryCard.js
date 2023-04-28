@@ -3,7 +3,7 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import { Image } from "react-native";
 
-const CategoryCard = ({ imgUrl, title }) => {
+export const CategoryCard = ({ imgUrl, title }) => {
   return (
     <TouchableOpacity className="relative mr-2">
       <Image

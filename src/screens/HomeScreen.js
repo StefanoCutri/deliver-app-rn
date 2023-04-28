@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { SafeAreaView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { ScrollView } from "react-native";
-import Header from "../../components/Header";
+import {Header} from '../../components/Header'
 import Categories from "../../components/Categories";
 import FeaturedRow from "../../components/FeaturedRow";
 import client from "../../sanity";
