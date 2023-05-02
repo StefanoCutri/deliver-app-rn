@@ -1,3 +1,4 @@
+import React, { useMemo, useState } from "react";
 import {
   View,
   Text,
@@ -6,20 +7,24 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import React, { useMemo, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch, useSelector } from "react-redux";
-import { selectRestaurant } from "../features/restaurantSlice";
-import { removeFromBasket, selectBasketItems, selectBasketTotal } from "../features/basketSlice";
 import { XCircleIcon } from "react-native-heroicons/outline";
 import Currency from "react-currency-formatter";
 import { urlFor } from "../sanity";
+import {
+  removeFromBasket,
+  selectBasketItems,
+  selectBasketTotal,
+} from "../features/basketSlice";
+import { selectRestaurant } from "../features/restaurantSlice";
 
 const BasketScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant);
   const items = useSelector(selectBasketItems);
   const basketTotal = useSelector(selectBasketTotal);
+
   const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([]);
   const dispatch = useDispatch();
 
@@ -90,26 +95,31 @@ const BasketScreen = () => {
           <View className="flex-row justify-between">
             <Text className="text-gray-400">Subtotal</Text>
             <Text className="text-gray-400">
-            <Currency quantity={basketTotal} currency="USD" />
+              <Currency quantity={basketTotal} currency="USD" />
             </Text>
           </View>
 
           <View className="flex-row justify-between">
             <Text className="text-gray-400">Delivery Fee</Text>
             <Text className="text-gray-400">
-            <Currency quantity={4.9} currency="USD" />
+              <Currency quantity={4.9} currency="USD" />
             </Text>
           </View>
 
           <View className="flex-row justify-between">
             <Text>Order Total</Text>
             <Text className="font-extrabold">
-            <Currency quantity={basketTotal + 4.99} currency="USD" />
+              <Currency quantity={basketTotal + 4.99} currency="USD" />
             </Text>
           </View>
 
-          <TouchableOpacity className="rounded-lg bg-[#00CCBB] p-4">
-            <Text className="text-white font-extrabold text-center">Place Order</Text>
+          <TouchableOpacity
+            className="rounded-lg bg-[#00CCBB] p-4"
+            onPress={() => navigation.goBack()}
+          >
+            <Text className="text-white font-extrabold text-center text-lg">
+              Place Order
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
