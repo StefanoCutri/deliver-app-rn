@@ -4,6 +4,7 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 import { urlFor } from '../sanity';
 import { ArrowLeftIcon, ChevronRightIcon, MapPinIcon, QuestionMarkCircleIcon, StarIcon } from 'react-native-heroicons/outline';
 import DishRow from '../components/DishRow';
+import BasketIcon from '../components/BasketIcon';
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
@@ -26,6 +27,8 @@ const RestaurantScreen = () => {
     })
   }, [])
   return (
+    <>
+    <BasketIcon/>
     <ScrollView>
       <View className="relative">
        <Image
@@ -33,7 +36,7 @@ const RestaurantScreen = () => {
         source={{
           uri: urlFor(imgUrl).url()
         }}
-       />
+        />
        <TouchableOpacity onPress={navigation.goBack} className="absolute top-14 left-5 p-2 bg-gray-100 rounded-full">
         <ArrowLeftIcon size={20} color="#00CCBB"/>
        </TouchableOpacity>
@@ -83,6 +86,7 @@ const RestaurantScreen = () => {
         </View>
       </View>
     </ScrollView>
+          </>
   )
 }
 
