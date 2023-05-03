@@ -53,7 +53,7 @@ const BasketScreen = () => {
             <XCircleIcon color="#00CCBB" width={50} height={50} />
           </TouchableOpacity>
         </View>
-        <View className="flex-row items-center space-x-4 px-4 py- bg-white">
+        <View className="flex-row items-center space-x-4 px-4 py-2 bg-white">
           <Image
             source={{
               uri: "https://links.papareact.com/wru",

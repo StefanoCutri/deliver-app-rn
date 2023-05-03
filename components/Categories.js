@@ -1,24 +1,22 @@
-import { View, Text } from "react-native";
 import React, { useEffect, useState } from "react";
 import { ScrollView } from "react-native";
 import client, { urlFor } from "../sanity";
 import CategoryCard from "./CategoryCard";
 
 export const Categories = () => {
-
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    client.fetch(
-      `
+    client
+      .fetch(
+        `
       *[_type == "category"]
       `
-    )
-    .then(data => {
-      setCategories(data)
-    })
-  }, [])
-  
+      )
+      .then((data) => {
+        setCategories(data);
+      });
+  }, []);
 
   return (
     <ScrollView
@@ -30,15 +28,13 @@ export const Categories = () => {
       showsHorizontalScrollIndicator={false}
     >
       {/* CategoryCard */}
-      {
-        categories.map((category) => (
-          <CategoryCard 
+      {categories.map((category) => (
+        <CategoryCard
           key={category._id}
           imgUrl={urlFor(category.image).url()}
           title={category.name}
-          />
-        ))
-      }
+        />
+      ))}
     </ScrollView>
   );
 };

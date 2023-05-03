@@ -5,7 +5,7 @@ import { ScrollView } from 'react-native'
 import client from '../sanity'
 import {RestaurantCard} from './RestaurantCard'
 
-export const FeaturedRow = ({id, title, description, featuredCategory}) => {
+export const FeaturedRow = ({id, title, description}) => {
 
   const [restaurants, setRestaurants] = useState([]);
 

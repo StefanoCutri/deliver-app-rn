@@ -17,7 +17,6 @@ import MapMarker from "react-native-maps/lib/MapMarker";
 const DeliveryScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant);
-  console.log(restaurant.lat, restaurant.long);
   return (
     <View className="bg-[#00CCBB] flex-1">
       <SafeAreaView className="z-50">
@@ -48,8 +47,8 @@ const DeliveryScreen = () => {
       </SafeAreaView>
       <MapView
         initialRegion={{
-          latitude: 48.858093,
-          longitude: 2.294694,
+          latitude: restaurant.lat,
+          longitude: restaurant.long,
           latitudeDelta: 0.005,
           longitudeDelta: 0.005,
         }}
@@ -58,8 +57,8 @@ const DeliveryScreen = () => {
       >
         <MapMarker
           coordinate={{
-            latitude: 48.858093,
-            longitude: 2.294694,
+            latitude: restaurant.lat,
+            longitude: restaurant.long,
           }}
           title={restaurant.title}
           description={restaurant.short_description}
@@ -67,9 +66,7 @@ const DeliveryScreen = () => {
           pinColor="#00CCBB"
         />
       </MapView>
-      <SafeAreaView
-      className="bg-white flex-row items-center space-x-5 h-28"
-      >
+      <SafeAreaView className="bg-white flex-row items-center space-x-5 h-28">
         <Image
           source={{
             uri: "https://links.papareact.com/wru",

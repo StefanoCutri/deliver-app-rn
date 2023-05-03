@@ -1,31 +1,25 @@
-import { View, Text, SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-native";
 import React, { useEffect } from "react";
 import * as Animatable from "react-native-animatable";
 import * as Progress from "react-native-progress";
 import { useNavigation } from "@react-navigation/native";
 
-const gif = require("../assets/delivery.gif");
 const PreparingOrderScreen = () => {
+  const navigation = useNavigation();
 
-const navigation = useNavigation();
-
-useEffect(() => {
-
+  useEffect(() => {
     setTimeout(() => {
-        navigation.navigate("Delivery")
+      navigation.navigate("Delivery");
     }, 4000);
+  }, []);
 
-}, [])
-
-
-  if (!gif) return null;
   return (
-    <SafeAreaView className="flex-1 bg-[#fcfcff] justify-center items-center">
+    <SafeAreaView className="flex-1 bg-white justify-center items-center">
       <Animatable.Image
-        source={require("../assets/delivery.gif")}
+        source={require("../assets/delivery-food.gif")}
         animation="slideInUp"
         iterationCount={1}
-        className="h-96 w-96"
+        className="h-80 w-80"
       />
       <Animatable.Text
         animation="slideInUp"
