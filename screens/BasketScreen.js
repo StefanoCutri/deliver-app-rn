@@ -53,7 +53,7 @@ const BasketScreen = () => {
             <XCircleIcon color="#00CCBB" width={50} height={50} />
           </TouchableOpacity>
         </View>
-        <View className="flex-row items-center space-x-4 px-4 py-3 bg-white my-5">
+        <View className="flex-row items-center space-x-4 px-4 py- bg-white">
           <Image
             source={{
               uri: "https://links.papareact.com/wru",
@@ -115,7 +115,7 @@ const BasketScreen = () => {
 
           <TouchableOpacity
             className="rounded-lg bg-[#00CCBB] p-4"
-            onPress={() => navigation.goBack()}
+            onPress={() => navigation.navigate("PreparingOrder")}
           >
             <Text className="text-white font-extrabold text-center text-lg">
               Place Order
