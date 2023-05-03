@@ -11,10 +11,13 @@ import { useSelector } from "react-redux";
 import { selectRestaurant } from "../features/restaurantSlice";
 import { XCircleIcon } from "react-native-heroicons/outline";
 import * as Progress from "react-native-progress";
+import MapView from "react-native-maps";
+import MapMarker from "react-native-maps/lib/MapMarker";
 
 const DeliveryScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant);
+  console.log(restaurant.lat, restaurant.long);
   return (
     <View className="bg-[#00CCBB] flex-1">
       <SafeAreaView className="z-50">
@@ -42,6 +45,42 @@ const DeliveryScreen = () => {
             Your order at {restaurant.title} is being prepared
           </Text>
         </View>
+      </SafeAreaView>
+      <MapView
+        initialRegion={{
+          latitude: 48.858093,
+          longitude: 2.294694,
+          latitudeDelta: 0.005,
+          longitudeDelta: 0.005,
+        }}
+        className="flex-1 -mt-10 z-0"
+        mapType="mutedStandard"
+      >
+        <MapMarker
+          coordinate={{
+            latitude: 48.858093,
+            longitude: 2.294694,
+          }}
+          title={restaurant.title}
+          description={restaurant.short_description}
+          identifier="origin"
+          pinColor="#00CCBB"
+        />
+      </MapView>
+      <SafeAreaView
+      className="bg-white flex-row items-center space-x-5 h-28"
+      >
+        <Image
+          source={{
+            uri: "https://links.papareact.com/wru",
+          }}
+          className="h-12 w-12 bg-gray-300 p-4 rounded-full ml-5"
+        />
+        <View className="flex-1">
+          <Text className="text-lg">Stefano Cutri</Text>
+          <Text className="text-gray-400">Your Rider</Text>
+        </View>
+        <Text className="text-[#00CCBB] text-lg mr-5 font-bold">Call</Text>
       </SafeAreaView>
     </View>
   );
